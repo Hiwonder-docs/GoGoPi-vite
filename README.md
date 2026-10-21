@@ -1,7 +1,7 @@
-# LeRobot Documentation
+# GoGoPi Documentation
 
-This repository contains the LeRobot VitePress documentation site. The
-documentation source files are Markdown files under `docs/page/`.
+This repository contains the GoGoPi VitePress documentation site. The
+documentation source files are Markdown files under `docs/docs/`.
 
 ## Local development
 
@@ -12,29 +12,29 @@ npm ci
 npm run docs:dev
 ```
 
-Build the production site:
+Build the production site and stage the artifacts:
 
 ```bash
 npm run docs:build
+npm run docs:stage-main
 ```
 
-The production files are generated in `docs/.vitepress/dist/`.
+The staged production files are generated in `projects/GoGoPi/en/latest/`.
 
 ## GitHub Pages deployment
 
-The workflow in `.github/workflows/deploy-docs.yml` builds the site and
-publishes it to the `gh-pages` branch whenever `main` is pushed. For a repository named
-`LeRobot-vite`, the initial GitHub Pages URL is:
+The build artifacts under `projects/` are committed to the repository. Open
+**Settings > Pages**, select **Deploy from a branch**, and choose **main** and
+**/(root)**. Do not bind a custom domain.
+
+The GitHub Pages direct URL is:
 
 ```text
-https://hiwonder-docs.github.io/LeRobot-vite/projects/LeRobot/en/latest/
+https://hiwonder-docs.github.io/GoGoPi-vite/projects/GoGoPi/en/latest/
 ```
 
-After the workflow creates the `gh-pages` branch, open **Settings > Pages**,
-select **Deploy from a branch**, and choose **gh-pages** and **/(root)**.
-
-When a custom domain is configured later, the same site path becomes:
+The public-facing URL (via the baota Nginx reverse proxy) is:
 
 ```text
-https://wiki.hiwonder.com/projects/LeRobot/en/latest/
+https://wiki-test.hiwonder.com/projects/GoGoPi/en/latest/
 ```
